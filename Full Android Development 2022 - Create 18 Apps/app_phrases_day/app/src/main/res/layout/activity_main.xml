@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/logo" />
+
+        <Button
+            android:id="@+id/btnNewPhrase"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="New Phrase"
+            android:textSize="20dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/txtPhrase"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:gravity="center"
+            android:text="@string/press_the_button_to_generate_a_new_phrase"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+</ScrollView>

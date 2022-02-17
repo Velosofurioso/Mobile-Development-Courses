@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Rock Paper Scissor</string>
+    <string name="choose_an_option_below">Choose an option below</string>
+    <string name="app_s_choose">App\'s Choose</string>
+    <string name="empty_image">Empty Image</string>
+    <string name="rock_image">Rock Image</string>
+    <string name="paper_image">Paper Image</string>
+    <string name="scissor_image">Scissor Image</string>
+</resources>
