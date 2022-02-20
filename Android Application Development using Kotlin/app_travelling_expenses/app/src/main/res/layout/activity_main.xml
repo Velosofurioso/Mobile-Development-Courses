@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="40dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtEditDistance"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/distance"
+        android:autofillHints="phone" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/total_kilometers"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/txtEditPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:inputType="numberDecimal"
+        android:autofillHints="phone"
+        android:hint="@string/price"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price_per_liters"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/txtEditAutonomy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:inputType="numberDecimal"
+        android:autofillHints="phone"
+        android:hint="@string/autonomy"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/km_s_per_liter"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/the_total_expense_will_be"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/txtResultExpanse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_500"
+        android:text="0"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:text="@string/calculate"
+        android:textSize="30sp"/>
+
+</LinearLayout>

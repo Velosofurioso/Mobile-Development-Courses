@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Travel Expenses</string>
+    <string name="calculate">Calculate</string>
+    <string name="km_s_per_liter">Km\'s per Liter</string>
+    <string name="autonomy">Autonomy</string>
+    <string name="price_per_liters">Price per liters</string>
+    <string name="price">Price</string>
+    <string name="total_kilometers">Total Kilometers</string>
+    <string name="distance">Distance</string>
+    <string name="the_total_expense_will_be">The total expense will be:</string>
+</resources>

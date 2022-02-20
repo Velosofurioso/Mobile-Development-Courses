@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ex Checkbox Image</string>
+    <string name="color_fill">Color fill?</string>
+    <string name="android_icon">Android Icon</string>
+</resources>
