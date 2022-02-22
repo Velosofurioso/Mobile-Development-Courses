@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">app_notes</string>
+    <string name="monday_february_21">Monday, February 21</string>
+    <string name="cut_the_grass">Cut the grass</string>
+    <string name="do_the_shopping">Do the shopping</string>
+    <string name="complete_all_tasks">Complete all tasks</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="let_s_start">Let\'s start?</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="save">Save</string>
+</resources>

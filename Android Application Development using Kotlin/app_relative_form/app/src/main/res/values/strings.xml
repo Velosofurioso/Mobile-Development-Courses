@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">app_relative_form</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="not_registered_register">Not registered? Register!</string>
+</resources>
