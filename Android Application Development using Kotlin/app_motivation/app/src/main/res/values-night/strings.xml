@@ -3,4 +3,9 @@
     <string name="let_s_start">Let\'s start?</string>
     <string name="what_is_your_name">What is your name?</string>
     <string name="save">Save</string>
+    <string name="how_are_you">How Are you?</string>
+    <string name="new_phrase">New Phrase</string>
+    <string name="image_of_infinite_icon">Image of Infinite Icon</string>
+    <string name="image_of_smile_icon">Image of Smile Icon</string>
+    <string name="image_of_sun_icon">Image of Sun Icon</string>
 </resources>
