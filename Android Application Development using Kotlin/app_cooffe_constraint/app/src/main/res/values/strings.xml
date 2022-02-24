@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cooffe Constraint</string>
+    <string name="cappuccino">Cappuccino</string>
+    <string name="clock_icon">Clock Icon</string>
+    <string name="hearth_icon">Hearth Icon</string>
+    <string name="_15_minutes">15 Minutes</string>
+    <string name="_54214">54214</string>
+    <string name="cooffe_revenue">A simple and perfectly extracted shot of espresso mixed with fresh milk and chocolate make this drink delicious.</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="_1_shot_of_espresso">1 Shot of Espresso</string>
+    <string name="_100ml_milk">100ml Milk</string>
+    <string name="_1_spoon_of_chocolate_powder">1 spoon of chocolate powder</string>
+</resources>
