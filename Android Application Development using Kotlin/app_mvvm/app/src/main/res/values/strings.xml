@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">app_mvvm</string>
+    <string name="template">TEMPLATE</string>
+    <string name="login">LOGIN</string>
+</resources>

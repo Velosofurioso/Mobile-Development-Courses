@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name">Name</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="present">Present</string>
+    <string name="save">Save</string>
+    <string name="absent">Absent</string>
+    <string name="john">John…</string>
+    <string name="sucess">Success</string>
+    <string name="failed">Failed</string>
+</resources>

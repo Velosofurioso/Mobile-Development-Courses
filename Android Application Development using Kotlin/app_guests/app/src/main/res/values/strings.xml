@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Guests</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_all_guests">All Guests</string>
+    <string name="menu_presents">Presents</string>
+    <string name="menu_absents">Absents</string>
+    <string name="name">Name</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="present">Present</string>
+    <string name="save">Save</string>
+    <string name="absent">Absent</string>
+    <string name="john">John…</string>
+    <string name="sucess">Success</string>
+    <string name="failed">Failed</string>
+
+    <string name="cadastro_convidado">Guest registration</string>
+    <string name="nao_confirmado">Not confirmed</string>
+    <string name="confirmacao">Confirmation</string>
+    <string name="nome">Name</string>
+    <string name="cancelar">Cancel</string>
+    <string name="remocao_convidado">Guest removal</string>
+    <string name="deseja_remover">Want to remove guest from list?</string>
+    <string name="remover">To remove</string>
+    <string name="removido_com_sucesso">Guest successfully removed.</string>
+    <string name="total">Total</string>
+</resources>
