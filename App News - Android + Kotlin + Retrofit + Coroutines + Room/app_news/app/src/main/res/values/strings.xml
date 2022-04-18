@@ -10,4 +10,6 @@
     <string name="article_saved_successful">Artigo salvo com sucesso!</string>
     <string name="article_delete_successful">Artigo deletado com sucesso</string>
     <string name="undo">desfazer</string>
+    <string name="image_from_news">Image from News</string>
+    <string name="favorite_string_resource">Favorite Icon Button</string>
 </resources>
