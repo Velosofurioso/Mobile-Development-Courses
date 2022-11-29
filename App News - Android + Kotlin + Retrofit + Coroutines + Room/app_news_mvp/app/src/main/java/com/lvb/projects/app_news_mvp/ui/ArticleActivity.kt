@@ -1,34 +1,40 @@
 package com.lvb.projects.app_news_mvp.ui
 
+import android.os.Bundle
 import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.lvb.projects.app_news_mvp.R
+import com.lvb.projects.app_news_mvp.databinding.ActivityArticleBinding
 import com.lvb.projects.app_news_mvp.model.Article
 import com.lvb.projects.app_news_mvp.model.data.NewsDataSource
 import com.lvb.projects.app_news_mvp.presenter.ViewHome
 import com.lvb.projects.app_news_mvp.presenter.favorite.FavoritePresenter
-import kotlinx.android.synthetic.main.activity_article.*
 
-class ArticleActivity : AbstractActivity(), ViewHome.Favorite {
+class ArticleActivity : AppCompatActivity(), ViewHome.Favorite {
 
     private lateinit var article: Article
     private lateinit var presenter: FavoritePresenter
+    private lateinit var binding: ActivityArticleBinding
 
-    override fun getLayout(): Int = R.layout.activity_article
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityArticleBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-    override fun onInject() {
         getArticle()
         val dataSource = NewsDataSource(this)
         presenter = FavoritePresenter(dataSource, this)
 
-        web_view.apply {
+        binding.webView.apply {
             webViewClient = WebViewClient()
             article.url?.let {
                 loadUrl(it)
             }
         }
 
-        web_button_fab.setOnClickListener {
+        binding.webButtonFab.setOnClickListener {
             presenter.saveArticle(article)
             Snackbar.make(it, R.string.article_saved_successful, Snackbar.LENGTH_LONG).show()
         }

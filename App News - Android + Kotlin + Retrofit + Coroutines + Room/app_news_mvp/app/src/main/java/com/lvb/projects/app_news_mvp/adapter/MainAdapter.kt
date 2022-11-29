@@ -1,20 +1,18 @@
 package com.lvb.projects.app_news_mvp.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lvb.projects.app_news_mvp.R
+import com.lvb.projects.app_news_mvp.databinding.ItemNewsBinding
 import com.lvb.projects.app_news_mvp.model.Article
-import kotlinx.android.synthetic.main.item_news.view.*
 
 class MainAdapter: RecyclerView.Adapter<MainAdapter.ArticleViewHolder>() {
 
 
-    inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class ArticleViewHolder(val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
@@ -31,25 +29,28 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.ArticleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_news, parent, false)
+            ItemNewsBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
         )
     }
 
     override fun getItemCount(): Int = differ.currentList.size
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        val article = differ.currentList[position]
-        holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(rv_article_image)
-            text_item_title.text = article.author ?: article.source?.name
-            text_item_source.text = article.source?.name ?: article.author
-            tv_item_description.text = article.description
-            text_item_date_published.text = article.publishedAt
 
-            setOnClickListener {
-                onItemCLickListener?.let { click ->
-                    click(article)
+        with(holder) {
+            with(differ.currentList[position]) {
+                Glide.with(holder.itemView.context).load(urlToImage).into(binding.rvArticleImage)
+                binding.textItemTitle.text = author ?: source?.name
+                binding.textItemSource.text = source?.name ?: author
+                binding.tvItemDescription.text = description
+                binding.textItemDatePublished.text = publishedAt
+
+                holder.itemView.setOnClickListener{
+                    onItemCLickListener?.let { click ->
+                        click(this)
+                    }
                 }
             }
         }

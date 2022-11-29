@@ -1,6 +1,8 @@
 package com.lvb.projects.app_news_mvp.ui
 
 import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,23 +10,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.lvb.projects.app_news_mvp.R
 import com.lvb.projects.app_news_mvp.adapter.MainAdapter
+import com.lvb.projects.app_news_mvp.databinding.ActivityFavoriteBinding
 import com.lvb.projects.app_news_mvp.model.Article
 import com.lvb.projects.app_news_mvp.model.data.NewsDataSource
 import com.lvb.projects.app_news_mvp.presenter.ViewHome
 import com.lvb.projects.app_news_mvp.presenter.favorite.FavoritePresenter
-import kotlinx.android.synthetic.main.activity_favorite.*
 
-class FavoriteActivity : AbstractActivity(), ViewHome.Favorite {
+class FavoriteActivity : AppCompatActivity(), ViewHome.Favorite {
 
     private val mainAdapter by lazy {
         MainAdapter()
     }
 
     private lateinit var presenter: FavoritePresenter
+    private lateinit var binding: ActivityFavoriteBinding
 
-    override fun getLayout(): Int = R.layout.activity_favorite
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityFavoriteBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-    override fun onInject() {
         val dataSource = NewsDataSource(this)
         presenter = FavoritePresenter(dataSource, this)
         presenter.getAll()
@@ -63,19 +69,19 @@ class FavoriteActivity : AbstractActivity(), ViewHome.Favorite {
         }
 
         ItemTouchHelper(itemTouchPerCallback).apply {
-            attachToRecyclerView(rv_favorite)
+            attachToRecyclerView(binding.rvFavorite)
         }
 
         presenter.getAll()
-
     }
+
 
     override fun showArticles(articles: List<Article>) {
         mainAdapter.differ.submitList(articles.toList())
     }
 
     private fun configRecycle() {
-        with(rv_favorite) {
+        with(binding.rvFavorite) {
             adapter = mainAdapter
             layoutManager = LinearLayoutManager(this@FavoriteActivity)
             addItemDecoration(

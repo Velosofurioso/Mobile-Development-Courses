@@ -7,6 +7,11 @@ plugins {
 }
 
 android {
+
+    viewBinding {
+        enabled = true
+    }
+
     namespace 'com.lvb.projects.app_news_mvp'
     compileSdk 33
 

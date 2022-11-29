@@ -1,31 +1,37 @@
 package com.lvb.projects.app_news_mvp.ui
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lvb.projects.app_news_mvp.R
 import com.lvb.projects.app_news_mvp.adapter.MainAdapter
+import com.lvb.projects.app_news_mvp.databinding.ActivityMainBinding
 import com.lvb.projects.app_news_mvp.model.Article
 import com.lvb.projects.app_news_mvp.model.data.NewsDataSource
 import com.lvb.projects.app_news_mvp.presenter.ViewHome
 import com.lvb.projects.app_news_mvp.presenter.news.NewsPresenter
-import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AbstractActivity(), ViewHome.View {
+class MainActivity : AppCompatActivity(), ViewHome.View {
 
     private val mainAdapter by lazy {
         MainAdapter()
     }
 
     private lateinit var presenter: NewsPresenter
+    private lateinit var binding: ActivityMainBinding
 
-    override fun getLayout(): Int = R.layout.activity_main
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-    override fun onInject() {
         val dataSource = NewsDataSource(this)
         presenter = NewsPresenter(this, dataSource)
         presenter.requestAll()
@@ -34,7 +40,7 @@ class MainActivity : AbstractActivity(), ViewHome.View {
     }
 
     private fun configRecycle() {
-        with(rv_news) {
+        with(binding.rvNews) {
             adapter = mainAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)
             addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
@@ -50,7 +56,7 @@ class MainActivity : AbstractActivity(), ViewHome.View {
     }
 
     override fun showProgressBar() {
-        rv_progress_bar.visibility = View.VISIBLE
+        binding.rvProgressBar.visibility = View.VISIBLE
     }
 
     override fun showFailure(message: String) {
@@ -58,7 +64,7 @@ class MainActivity : AbstractActivity(), ViewHome.View {
     }
 
     override fun hideProgressBar() {
-        rv_progress_bar.visibility = View.INVISIBLE
+        binding.rvProgressBar.visibility = View.INVISIBLE
     }
 
     override fun showArticles(articles: List<Article>) {
