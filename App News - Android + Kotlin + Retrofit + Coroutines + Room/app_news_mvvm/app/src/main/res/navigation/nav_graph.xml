@@ -33,7 +33,7 @@
         android:name="com.lvb.projects.app_news_mvvm.ui.fragments.webview.WebViewFragment"
         android:label="News" >
         <argument
-            android:name="Article"
+            android:name="article"
             app:argType="com.lvb.projects.app_news_mvvm.data.local.model.Article" />
     </fragment>
 </navigation>
