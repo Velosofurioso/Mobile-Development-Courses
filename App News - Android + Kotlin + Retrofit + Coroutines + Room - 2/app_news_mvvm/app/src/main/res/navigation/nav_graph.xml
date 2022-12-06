@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.lvb.projects.app_news_mvvm.ui.fragments.home.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.lvb.projects.app_news_mvvm.ui.fragments.favorite.FavoriteFragment"
+        android:label="Favorites" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.lvb.projects.app_news_mvvm.ui.fragments.search.SearchFragment"
+        android:label="Search" >
+        <action
+            android:id="@+id/action_searchFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.lvb.projects.app_news_mvvm.ui.fragments.webview.WebViewFragment"
+        android:label="News" >
+        <argument
+            android:name="Article"
+            app:argType="com.lvb.projects.app_news_mvvm.data.local.model.Article" />
+    </fragment>
+</navigation>
