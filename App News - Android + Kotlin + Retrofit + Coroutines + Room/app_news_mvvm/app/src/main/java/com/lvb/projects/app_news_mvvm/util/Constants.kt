@@ -3,7 +3,7 @@ package com.lvb.projects.app_news_mvvm.util
 class Constants {
 
     companion object {
-        const val API_KEY = "6bdeaee820984d4dbd723fe533c76403"
+        const val API_KEY = "<API_KEY>"
         const val BASE_URL = "https://newsapi.org"
         const val SEARCH_NEWS_DELAY = 500L
     }
