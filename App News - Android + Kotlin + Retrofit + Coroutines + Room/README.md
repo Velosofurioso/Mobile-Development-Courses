@@ -35,15 +35,15 @@ And the certificate generated at the end of the course can be accessed at this [
 
 ## 📱 Layouts
 <h1 align="center">
-    <img width="450px" src=".others/app_home.png"/>
+    <img width="350px" src=".others/app_home.png"/>
     <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-    <img width="450px" src=".others/app_search.png"/>
+    <img width="350px" src=".others/app_search.png"/>
 </h1>
 
 <h1 align="center">
-    <img width="450px" src=".others/app_view.png"/>
+    <img width="350px" src=".others/app_view.png"/>
     <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-    <img width="450px" src=".others/app_favorites.png"/>
+    <img width="350px" src=".others/app_favorites.png"/>
 </h1>
 
 
