@@ -1,15 +1,20 @@
 package com.lvb.projects.app_notes.data
 
+import androidx.lifecycle.MutableLiveData
+
 class NotesManager {
 
-    private val data = listOf<Note>(
-        Note(id = 0, text = "Note 1"),
-        Note(id = 0, text = "Note 2"),
-        Note(id = 0, text = "Note 3"),
-        Note(id = 0, text = "Note 4"),
-        Note(id = 0, text = "Note 5"),
-    )
+    private val data: MutableLiveData<MutableList<Note>> = MutableLiveData()
 
+    init {
+        data.value = mutableListOf()
+    }
 
     fun getNotes() = data
+
+    fun addNote(mNote: Note) = data.apply {
+        val tmp = value
+        tmp?.add(mNote)
+        postValue(tmp)
+    }
 }

@@ -1,10 +1,11 @@
-package com.lvb.projects.app_notes
+package com.lvb.projects.app_notes.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.lvb.projects.app_notes.R
 import com.lvb.projects.app_notes.data.Note
 
 class NotesViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
@@ -30,6 +31,12 @@ class NotesAdapter(private val data: MutableList<Note> = mutableListOf()): Recyc
 
     fun add(item: Note) {
         data.add(item)
+        notifyDataSetChanged()
+    }
+
+    fun add(item: List<Note>) {
+        data.clear()
+        data.addAll(item)
         notifyDataSetChanged()
     }
 

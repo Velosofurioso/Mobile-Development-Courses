@@ -7,17 +7,18 @@ import com.lvb.projects.app_notes.data.NotesManager
 
 class NotesViewModel: ViewModel() {
 
-    private val notesManager =  NotesManager()
-    private val mNotes = MutableLiveData<List<Note>>()
+    private val notesManager = NotesManager()
+    private var mNotes: MutableLiveData<MutableList<Note>>? = null
 
-    fun getNotes(): MutableLiveData<List<Note>> = mNotes
-
-    fun loadNotes() {
-        val tmp = notesManager.getNotes()
-        mNotes.postValue(tmp)
+    fun getNotes(): MutableLiveData<MutableList<Note>> {
+        if(mNotes == null) {
+            mNotes = notesManager.getNotes()
+        }
+        return mNotes!!
     }
 
-
-
+    fun save(mNote: Note) {
+        notesManager.addNote(mNote)
+    }
 
 }

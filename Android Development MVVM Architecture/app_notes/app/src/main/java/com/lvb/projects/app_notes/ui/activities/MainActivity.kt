@@ -1,16 +1,27 @@
 package com.lvb.projects.app_notes.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.lvb.projects.app_notes.NotesAdapter
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textfield.TextInputEditText
 import com.lvb.projects.app_notes.R
+import com.lvb.projects.app_notes.data.Note
+import com.lvb.projects.app_notes.ui.NotesAdapter
+import com.lvb.projects.app_notes.viewmodel.NotesViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    val notesAdapter: NotesAdapter by lazy {
+    private lateinit var notesViewModel: NotesViewModel
+
+    private val notesAdapter: NotesAdapter by lazy {
         NotesAdapter()
     }
 
@@ -20,6 +31,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_notes)
+
+        recyclerView.adapter = notesAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        //
+        notesViewModel = ViewModelProvider(this)[NotesViewModel::class.java]
+        notesViewModel.getNotes().observe(this) { data ->
+            data?.let {
+                if(it.isEmpty()) {
+                    Toast.makeText(this, "Empty List", Toast.LENGTH_SHORT).show()
+                } else {
+                    notesAdapter.add(it)
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -28,9 +56,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.action_add) {
-            //TODO call activity to add notes
+        if (item.itemId == R.id.action_add) {
+            dialogAddNote()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun dialogAddNote() {
+        val layout = LayoutInflater.from(this).inflate(R.layout.dialog_ui, null, false)
+
+        val inputNote = layout.findViewById<TextInputEditText>(R.id.input_note)
+
+        val dialog = AlertDialog.Builder(this).apply {
+            setView(layout)
+            setNegativeButton("Cancel", null)
+            setPositiveButton("Save") {d, i ->
+                // Save Note
+                val note = Note(0, inputNote.text.toString())
+                notesViewModel.save(note)
+            }
+        }
+        dialog.create().show()
     }
 }
