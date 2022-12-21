@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
@@ -16,10 +15,11 @@ import com.lvb.projects.app_notes.R
 import com.lvb.projects.app_notes.data.Note
 import com.lvb.projects.app_notes.ui.NotesAdapter
 import com.lvb.projects.app_notes.viewmodel.NotesViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var notesViewModel: NotesViewModel
+    private val notesViewModel: NotesViewModel by viewModel()
 
     private val notesAdapter: NotesAdapter by lazy {
         NotesAdapter()
@@ -37,8 +37,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = notesAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        //
-        notesViewModel = ViewModelProvider(this)[NotesViewModel::class.java]
         notesViewModel.getNotes().observe(this) { data ->
             data?.let {
                 if(it.isEmpty()) {
