@@ -6,7 +6,9 @@ import androidx.fragment.app.viewModels
 import com.lvb.projects.app_marvel.databinding.FragmentFavoriteCharacterBinding
 import com.lvb.projects.app_marvel.ui.base.BaseFragment
 import com.lvb.projects.app_marvel.ui.details.DetailsCharacterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteCharacterFragment : BaseFragment<FragmentFavoriteCharacterBinding, DetailsCharacterViewModel>() {
     override val viewModel: DetailsCharacterViewModel by viewModels()
 
