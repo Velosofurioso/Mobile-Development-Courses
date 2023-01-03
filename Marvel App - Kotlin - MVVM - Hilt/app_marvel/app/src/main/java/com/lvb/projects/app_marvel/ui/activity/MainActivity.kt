@@ -1,9 +1,10 @@
-package com.lvb.projects.app_marvel
+package com.lvb.projects.app_marvel.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.lvb.projects.app_marvel.R
 import com.lvb.projects.app_marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
