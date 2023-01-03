@@ -14,7 +14,7 @@ interface ServiceApi {
         @Query("nameStartsWith") nameStartsWith: String? = null
     ): Response<CharacterModelResponse>
 
-    @GET("/characters/{characterId}/comics")
+    @GET("/v1/public/characters/{characterId}/comics")
     suspend fun getComics(
         @Path(
             value = "characterId",
