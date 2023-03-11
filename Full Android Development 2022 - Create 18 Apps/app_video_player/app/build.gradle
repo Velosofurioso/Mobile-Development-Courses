@@ -5,16 +5,21 @@ plugins {
 
 android {
     namespace 'com.lvb.courses.app_video_player'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.lvb.courses.app_video_player"
-        minSdk 31
-        targetSdk 32
+        minSdk 26
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        viewBinding {
+            enabled = true
+        }
+
     }
 
     buildTypes {
