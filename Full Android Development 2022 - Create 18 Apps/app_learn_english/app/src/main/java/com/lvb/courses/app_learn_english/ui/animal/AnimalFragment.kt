@@ -1,11 +1,13 @@
 package com.lvb.courses.app_learn_english.ui.animal
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lvb.courses.app_learn_english.R
+import com.lvb.courses.app_learn_english.databinding.FragmentAnimalBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,10 +19,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AnimalFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AnimalFragment : Fragment() {
+class AnimalFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentAnimalBinding
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +38,17 @@ class AnimalFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_animal, container, false)
+
+        binding = FragmentAnimalBinding.inflate(layoutInflater, container, false)
+
+        binding.btnDog.setOnClickListener(this)
+        binding.btnCat.setOnClickListener(this)
+        binding.btnLion.setOnClickListener(this)
+        binding.btnMonkey.setOnClickListener(this)
+        binding.btnSheep.setOnClickListener(this)
+        binding.btnCow.setOnClickListener(this)
+
+        return binding.root
     }
 
     companion object {
@@ -56,5 +69,30 @@ class AnimalFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onClick(view: View?) {
+        when(view?.id) {
+            binding.btnDog.id -> playSound(R.raw.dog)
+            binding.btnCat.id -> playSound(R.raw.dog)
+            binding.btnLion.id -> playSound(R.raw.dog)
+            binding.btnMonkey.id -> playSound(R.raw.dog)
+            binding.btnSheep.id -> playSound(R.raw.dog)
+            binding.btnCow.id -> playSound(R.raw.dog)
+        }
+    }
+
+    private fun playSound(sound: Int) {
+        mediaPlayer = MediaPlayer.create(activity, sound)
+        mediaPlayer.start()
+
+        mediaPlayer.setOnCompletionListener {
+            it.release()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
 }

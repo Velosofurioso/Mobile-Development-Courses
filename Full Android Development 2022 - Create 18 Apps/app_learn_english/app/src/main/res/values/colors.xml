@@ -11,4 +11,5 @@
     <color name="colorPrimary">#795547</color>
     <color name="colorPrimaryDark">#5d4037</color>
     <color name="colorAccent">#a06451</color>
+    <color name="animal_background">#F5E989</color>
 </resources>
