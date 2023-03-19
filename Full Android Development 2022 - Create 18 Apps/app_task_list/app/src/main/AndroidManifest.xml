@@ -12,7 +12,7 @@
         android:theme="@style/Theme.App_task_list"
         tools:targetApi="31">
         <activity
-            android:name=".AddTaskActivity"
+            android:name=".ui.addTask.AddTaskActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
