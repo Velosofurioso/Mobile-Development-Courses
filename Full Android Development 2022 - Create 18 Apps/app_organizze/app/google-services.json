@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "199483712229",
+    "project_id": "app-organizze-9f45b",
+    "storage_bucket": "app-organizze-9f45b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199483712229:android:e2a2b6b51236013127aa0c",
+        "android_client_info": {
+          "package_name": "com.lvb.courses.app_organizze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199483712229-243bocu85a7sua8kd22ar45a26ufh80k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lvb.courses.app_organizze",
+            "certificate_hash": "2489a6afa09f953bd976d4ffc68f06e4938d793c"
+          }
+        },
+        {
+          "client_id": "199483712229-7hfbcmurbjpsu2rctj0p2hi3ne8gdsri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuHYndRWKP3kLac9syf42vVyNDJkneiYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199483712229-7hfbcmurbjpsu2rctj0p2hi3ne8gdsri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
