@@ -11,4 +11,15 @@
     <color name="colorPrimary">#01C7D2</color>
     <color name="colorPrimaryDark">#00b2bc</color>
     <color name="colorAccent">#ff706a</color>
+
+
+    <!-- Primary Expense. -->
+    <color name="colorPrimaryExpense">#FF706A</color>
+    <color name="colorPrimaryDarkExpense">#E66560</color>
+    <color name="colorAccentExpense">#FF706A</color>
+
+    <!-- Primary Revenue. -->
+    <color name="colorPrimaryRevenue">#00D39E</color>
+    <color name="colorPrimaryDarkRevenue">#00BE8B</color>
+    <color name="colorAccentRevenue">#00D39E</color>
 </resources>

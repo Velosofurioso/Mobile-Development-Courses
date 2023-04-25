@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.lvb.courses.app_organizze.config.FirebaseConfiguration
 import com.lvb.courses.app_organizze.databinding.ActivityRegisterBinding
 import com.lvb.courses.app_organizze.model.User
+import com.lvb.courses.app_organizze.util.Validator.Companion.isEditFilled
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -31,10 +34,12 @@ class RegisterActivity : AppCompatActivity() {
             user.password = textPassword
 
             // Validate if fields are filled
-            if (isEditFilled(textName, "Name") && isEditFilled(textEmail, "Email") && isEditFilled(
-                    textPassword,
-                    "Password"
+            if (isEditFilled(textName, "Name", applicationContext) && isEditFilled(
+                    textEmail,
+                    "Email",
+                    applicationContext
                 )
+                && isEditFilled(textPassword, "Password", applicationContext)
             ) {
                 registerUser(user)
             }
@@ -42,27 +47,30 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
-    private fun isEditFilled(value: String, name: String): Boolean {
-        if (value.isEmpty()) {
-            Toast.makeText(applicationContext, "Fill the $name", Toast.LENGTH_SHORT).show()
-            return false
-        }
-        return true
-    }
-
     private fun registerUser(user: User) {
         firebaseAuth = FirebaseConfiguration.getFirebaseAuth()
         firebaseAuth.createUserWithEmailAndPassword(
             user.email, user.password
         ).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(
-                    applicationContext,
-                    "Success in registering user",
-                    Toast.LENGTH_SHORT
-                ).show()
+                finish()
             } else {
-                Toast.makeText(applicationContext, "Error registering user", Toast.LENGTH_SHORT)
+
+                var exception: String = ""
+                try {
+                    throw task.exception!!
+                } catch (e: FirebaseAuthWeakPasswordException) {
+                    exception = "Enter a stronger password"
+                } catch (e: FirebaseAuthInvalidCredentialsException) {
+                    exception = "Enter a valid email address"
+                } catch (e: FirebaseAuthWeakPasswordException) {
+                    exception = "This account has already been registered"
+                } catch (e: Exception) {
+                    exception = "Error registering user: ${e.message}"
+                    e.printStackTrace()
+                }
+
+                Toast.makeText(applicationContext, exception, Toast.LENGTH_SHORT)
                     .show()
             }
         }

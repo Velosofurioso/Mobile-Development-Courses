@@ -12,5 +12,35 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
+
+    <style name="Theme.App_organizze.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.App_organizze.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.App_organizze.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- Expense Theme -->
+    <style name="expenseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimaryExpense</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkExpense</item>
+        <item name="colorAccent">@color/colorAccentExpense</item>
+    </style>
+
+    <!-- Revenue Theme -->
+    <style name="revenueTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimaryRevenue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkRevenue</item>
+        <item name="colorAccent">@color/colorAccentRevenue</item>
+    </style>
+
 </resources>

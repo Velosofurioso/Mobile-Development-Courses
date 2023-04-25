@@ -12,6 +12,25 @@
         android:theme="@style/Theme.App_organizze"
         tools:targetApi="31">
         <activity
+            android:name=".ui.expense.ExpenseActivity"
+            android:theme="@style/expenseTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.revenue.RevenueActivity"
+            android:theme="@style/revenueTheme"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.App_organizze.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
@@ -20,13 +39,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Intro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.Intro" />
     </application>
 
 </manifest>
