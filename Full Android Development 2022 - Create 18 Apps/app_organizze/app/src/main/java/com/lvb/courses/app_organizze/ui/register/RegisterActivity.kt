@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.lvb.courses.app_organizze.config.FirebaseConfiguration
 import com.lvb.courses.app_organizze.databinding.ActivityRegisterBinding
 import com.lvb.courses.app_organizze.model.User
+import com.lvb.courses.app_organizze.util.Base64Util
 import com.lvb.courses.app_organizze.util.Validator.Companion.isEditFilled
 
 class RegisterActivity : AppCompatActivity() {
@@ -53,10 +54,17 @@ class RegisterActivity : AppCompatActivity() {
             user.email, user.password
         ).addOnCompleteListener { task ->
             if (task.isSuccessful) {
+
+                val idUser = Base64Util.encodeBase64(user.email)
+                user.idUser = idUser
+                user.save()
+
+
+
                 finish()
             } else {
 
-                var exception: String = ""
+                var exception = ""
                 try {
                     throw task.exception!!
                 } catch (e: FirebaseAuthWeakPasswordException) {

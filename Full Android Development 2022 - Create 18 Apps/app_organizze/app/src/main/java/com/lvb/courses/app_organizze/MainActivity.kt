@@ -76,6 +76,7 @@ class MainActivity : IntroActivity() {
 
     private fun verifyUserLogged() {
         firebaseAuth = FirebaseConfiguration.getFirebaseAuth()
+        //firebaseAuth.signOut()
 
         if (firebaseAuth.currentUser != null) {
             startActivity(Intent(this, HomeActivity::class.java))
