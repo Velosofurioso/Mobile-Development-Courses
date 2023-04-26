@@ -18,7 +18,7 @@ data class Movement(
 
         val auth = FirebaseConfiguration.getFirebaseAuth()
 
-        val idUser = Base64Util.encodeBase64(auth.currentUser?.email!!)
+        val idUser = Base64Util.encodeBase64(auth.currentUser?.email)
         val monthYear = DateUtil.monthYearChosen(chosenDate)
 
 
