@@ -52,6 +52,8 @@ class ExpenseActivity : AppCompatActivity() {
             updateExpense()
 
             movement.save(date)
+
+            finish()
         }
     }
     private fun validateExpenseFields() : Boolean = with(binding) {

@@ -48,6 +48,8 @@ class RevenueActivity : AppCompatActivity() {
             updateRevenue()
 
             movement.save(date)
+
+            finish()
         }
     }
 

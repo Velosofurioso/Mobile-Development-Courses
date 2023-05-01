@@ -11,8 +11,9 @@ data class Movement(
     var description: String,
     var type: String,
     var value: Double,
+    var key: String?,
 ) {
-    constructor() : this("", "", "", "", 0.00)
+    constructor() : this("", "", "", "", 0.00, "")
 
     fun save(chosenDate: String) {
 

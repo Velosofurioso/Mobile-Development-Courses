@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:ems="10"
-            android:hint="R$ 00.00"
+            android:hint="$ 00.00"
             android:inputType="numberDecimal"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
